@@ -17,17 +17,45 @@
   -->
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>SFG Brewery</title>
 </head>
 <body>
 <h2 th:text="#{welcomemsg}">SFG Brewery Monolith</h2>
+<div class="row" sec:authorize="!isAuthenticated()">
+    <div class="col-md-12">
+        <!--<p th:if="${loginError}" class="error">Wrong Username or password</p>-->
+        <div th:if="${param.error}" class="alert alert-danger">Invalid Username or password</div>
+        <div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']?.message} == 'User Account is locked'" class="alert alert-danger">Invalid Username or password</div>
+        <div th:if="${param.logout}" class="alert alert-success">You Have Logged out</div>
+        <form th:action="@{/login}" method="post">
+            <lebel for="username">Username:</lebel>
+            <input type="text" id="username" autofocus="true" autocomplete="off">
+            <lebel for="password">Password:</lebel>
+            <input type="password" id="password" autofocus="false" autocomplete="off">
+            <input type="submit" value="Log In">
+            <label for="remember-me">Remember Me:</label>
+            <input type="checkbox" id="remember-me" name="remember-me">
+
+        </form>
+
+    </div>
+</div>
+<div class="row" sec:authorize="isAuthenticated()">
+    <div class="col-md-12">
+        <p th:text="'Welcome '+ ${#authentication?.principal?.username}">User</p>
+        <p><a th:href="@{/logout}">Logout</a></p>
+
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
-        <img class="img-responsive" src="../static/resources/images/brewery.png" th:src="@{/resources/images/brewery.png}"/>
+        <img class="img-responsive" src="../static/resources/images/brewery.png"
+             th:src="@{/resources/images/brewery.png}"/>
     </div>
 </div>
 

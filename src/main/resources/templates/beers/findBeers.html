@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
       th:replace="~{fragments/layout :: layout (~{::body},'beers')}">
 
 <body>
@@ -29,7 +29,7 @@
 </form>
 
 <br />
-<a class="btn btn-default" th:href="@{/beers/new}">Add Beer</a>
+<a sec:authorize="hasAuthority('beer.create)" class="btn btn-default" th:href="@{/beers/new}">Add Beer</a>
 
 </body>
 </html>

@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~  Copyright 2020 the original author or authors.
-  ~
-  ~ This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses />.
-  -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -36,12 +19,12 @@
     <description>SFG Brewery Spring MVC Monolith</description>
     <name>SFG Brewery Spring MVC Monolith</name>
 
-    <licenses>
-        <license>
-            <name>GNU General Public License v3.0</name>
-            <url>https://www.gnu.org/licenses/gpl.txt</url>
-        </license>
-    </licenses>
+    <!--    <licenses>
+            <license>
+                <name>GNU General Public License v3.0</name>
+                <url>https://www.gnu.org/licenses/gpl.txt</url>
+            </license>
+        </licenses>-->
 
     <organization>
         <name>Spring Framework Guru</name>
@@ -49,8 +32,8 @@
 
     <developers>
         <developer>
-            <name>John Thompson</name>
-            <organization>Spring Framework Guru</organization>
+            <name>Sumanta Kumar</name>
+            <organization>iServeU Technology Pvt. Ltd.</organization>
         </developer>
     </developers>
 
@@ -143,6 +126,20 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.warrenstrange</groupId>
+            <artifactId>googleauth</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
